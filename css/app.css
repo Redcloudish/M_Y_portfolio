@@ -1,4 +1,16 @@
-* { box-sizing: border-box; }
+/* =========================================================
+   app.css (FULL) — Portfolio / Projects site
+   - Mobile hero polish (no conflicting paddings)
+   - “Red” branding accent for RedSky Marketing
+   - Better tap targets + safer wrapping
+   - Matrix hero support + reveal animations
+   ========================================================= */
+/* ===========================
+   Mike Brown Portfolio - app.css
+   Clean, merged, mobile-polished (NO duplicates)
+   =========================== */
+
+*{ box-sizing: border-box; }
 
 :root{
   --bg: #0b0f16;
@@ -10,6 +22,8 @@
 }
 
 /* ===== Base ===== */
+html, body { height: 100%; }
+
 body{
   margin:0;
   color: var(--text);
@@ -26,6 +40,12 @@ body{
   background-attachment: fixed;
 
   overflow-x: hidden; /* prevents tiny horizontal scroll on mobile */
+}
+
+/* Better tap feel */
+a, button{
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 .container{
@@ -64,10 +84,17 @@ h1, h2, h3, p{
   gap: 16px;
 }
 
+/* Brand (make it RED) */
 .brand{
   font-weight: 700;
   letter-spacing: .02em;
+  color: var(--accent);
 }
+
+/* If you decide to only make "Red" red later, use:
+   .brand{ color: var(--text); }
+   .brand-red{ color: var(--accent); }
+*/
 
 .nav-links{
   display:flex;
@@ -136,6 +163,9 @@ h1, h2, h3, p{
   max-width: 62ch;
 }
 
+.hero-right{ text-align: right; }
+.hero-right .btn-outline{ padding: 8px 12px; line-height: 1.1; }
+
 /* ===== BUTTONS ===== */
 .cta-row{
   display:flex;
@@ -178,9 +208,6 @@ h1, h2, h3, p{
   background: rgba(255,255,255,0.06);
   border-color: rgba(255,255,255,0.28);
 }
-
-.hero-right{ text-align: right; }
-.hero-right .btn-outline{ padding: 8px 12px; line-height: 1.1; }
 
 /* ===== SKILL PILLS ===== */
 .skills-row{
@@ -303,16 +330,19 @@ h1, h2, h3, p{
 
 .card li{ margin-bottom: 6px; }
 
-/* ===== NEW: “Professional project card” helpers ===== */
+.card-actions{
+  display:flex;
+  gap: 14px;
+  margin-top: 12px;
+}
+
+/* ===== “Professional project card” helpers ===== */
 .project-meta{
   margin-top: -6px;
   font-weight: 700;
   color: rgba(255,255,255,0.86);
 }
-
-.project-meta strong{
-  font-weight: 800;
-}
+.project-meta strong{ font-weight: 800; }
 
 .project-actions{
   display:flex;
@@ -474,46 +504,34 @@ h1, h2, h3, p{
   }
 }
 
-/* ===== MOBILE ===== */
+/* =========================================================
+   MOBILE / RESPONSIVE (single clean set)
+   ========================================================= */
+
+/* Tablet + down */
 @media (max-width: 950px){
-  .hero-grid{ grid-template-columns: 1fr; }
-  .grid{ grid-template-columns: 1fr; }
-  .hero-title{ font-size: 2rem; }
-
-  .photo-card{
-    margin: 0 auto;
-    max-width: 220px;
-  }
-
   body{ background-attachment: scroll; }
 
-  .hero-right{
-    text-align: left;
-    margin-top: 10px;
-  }
-}
-
-/* =========================
-   HERO MOBILE POLISH
-   (put near bottom of app.css)
-========================= */
-
-@media (max-width: 950px){
-  .hero{
-    padding: 28px 0 18px;              /* less chunky */
-  }
+  /* Hero less chunky + aligned */
+  .hero{ padding: 22px 0 14px; }
 
   .hero-grid{
-    gap: 16px;                         /* tighter spacing */
+    grid-template-columns: 1fr;
+    gap: 14px;
     align-items: start;
   }
 
+  .grid{ grid-template-columns: 1fr; }
+
+  /* Fix “not lined up” feel */
   .hero-left,
   .hero-right{
-    text-align: left !important;       /* fixes the “not lined up” feel */
+    text-align: left !important;
     justify-self: start;
     align-self: start;
   }
+
+  .eyebrow{ margin-bottom: 8px; }
 
   .hero-title{
     font-size: 2rem;
@@ -522,41 +540,82 @@ h1, h2, h3, p{
   }
 
   .hero-subtitle{
-    margin-bottom: 14px;
+    margin-bottom: 12px;
+    max-width: 60ch;
   }
 
   .cta-row{
     gap: 10px;
     margin-bottom: 10px;
   }
-}
 
-/* Even smaller phones */
-@media (max-width: 520px){
-  .hero{ padding: 22px 0 14px; }
-
-  .hero-title{ font-size: 1.75rem; }
-
-  .cta-row .btn{
-    width: 100%;                       /* stacked buttons looks cleaner */
-    text-align: center;
+  .photo-card{
+    margin: 6px auto 0;
+    max-width: 220px;
   }
 
-  /* Optional: hide the “Back” button in hero-right on tiny screens */
-  .hero-right{ display:none; }
+  .hero-right{ margin-top: 10px; }
 }
 
-
-/* Extra mobile comfort (Android/iOS) */
+/* Phones */
 @media (max-width: 650px){
-  .hero{ padding: 36px 0 22px; }
+  .container{ padding: 16px; }
 
+  /* Make nav behave nicely when wrapping */
+  .nav-inner{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .nav-links{ gap: 10px; }
+
+  .nav-links a{
+    padding: 10px 10px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.10);
+  }
+
+  .nav-links a:hover{
+    border-bottom-color: transparent;
+    border-color: rgba(255,255,255,0.22);
+  }
+
+  /* Better tap targets */
   .nav-links a,
   .btn{
-    min-height: 44px; /* good tap size */
+    min-height: 44px;
   }
 
   input, select, textarea{
-    font-size: 16px; /* prevents zoom + improves usability */
+    font-size: 16px; /* prevents zoom / improves usability */
+  }
+}
+
+/* Tiny phones */
+@media (max-width: 520px){
+  .hero-title{ font-size: 1.75rem; }
+
+  .cta-row .btn{
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Smaller photo so hero isn't huge */
+  .photo-card{ max-width: 190px; }
+
+  /* Tone down matrix overlay on photo */
+  .matrix-canvas--photo{ opacity: 0.22; }
+
+  /* Skills row: smaller + less chunky */
+  .skills-row{
+    gap: 8px;
+    margin-top: 10px;
+  }
+
+  .pill{
+    font-size: .9rem;
+    padding: 7px 10px;
   }
 }
