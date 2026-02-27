@@ -1,52 +1,52 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      
-        <!-- Primary SEO -->
-        <title>Projects | Mike Brown — Web & Mobile Developer</title>
-        <meta
-          name="description"
-          content="View development projects by Mike Brown including responsive websites, UI interfaces, and mobile applications built with modern technologies."
-        />
-      
-        <!-- Google indexing -->
-        <meta name="robots" content="index, follow" />
-      
-        <!-- Social preview -->
-        <meta property="og:title" content="Mike Brown — Development Projects" />
-        <meta
-          property="og:description"
-          content="Examples of web and mobile applications built with modern UI and clean architecture."
-        />
-        <meta property="og:type" content="website" />
-      
-        <!-- Performance -->
-        <link rel="preload" href="css/app.css" as="style" />
-        <link rel="stylesheet" href="css/app.css" />
-      
-        <!-- Optional favicon -->
-        <!-- <link rel="icon" href="assets/favicon.png" /> -->
-      
-        <!-- enables safe reveal -->
-        <script>
-          document.documentElement.classList.remove("no-js");
-          document.documentElement.classList.add("js");
-        </script>
-      </head>
-      
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary SEO -->
+    <title>Projects | Mike Brown — Web & Mobile Developer</title>
+    <meta
+      name="description"
+      content="View development projects by Mike Brown including responsive websites, UI interfaces, and mobile applications built with modern technologies."
+    />
+
+    <!-- Google indexing -->
+    <meta name="robots" content="index, follow" />
+
+    <!-- Social preview -->
+    <meta property="og:title" content="Mike Brown — Development Projects" />
+    <meta
+      property="og:description"
+      content="Examples of web and mobile applications built with modern UI and clean architecture."
+    />
+    <meta property="og:type" content="website" />
+
+    <!-- Performance -->
+    <link rel="preload" href="css/app.css" as="style" />
+    <link rel="stylesheet" href="css/app.css" />
+
+    <!-- Optional favicon -->
+    <!-- <link rel="icon" href="assets/favicon.png" /> -->
+
+    <!-- enables safe reveal -->
+    <script>
+      document.documentElement.classList.remove("no-js");
+      document.documentElement.classList.add("js");
+    </script>
+  </head>
 
   <body>
     <!-- Top Nav -->
     <nav class="nav">
       <div class="container nav-inner">
         <div class="brand">RedSky Marketing</div>
-        <div class="nav-links">
+
+        <div class="nav-links" aria-label="Primary navigation">
           <a href="index.html">Home</a>
           <a href="services.html">Services</a>
           <a href="index.html#resume">Resume</a>
-          <a href="projects.html">Projects</a>
+          <a href="projects.html" aria-current="page">Projects</a>
           <a href="contact.html">Contact</a>
         </div>
       </div>
@@ -54,7 +54,7 @@
 
     <!-- Page Header -->
     <header class="hero hero-matrix" id="projects-page">
-      <canvas id="Matrix" class="matrix-canvas"></canvas>
+      <canvas id="Matrix" class="matrix-canvas" aria-hidden="true"></canvas>
 
       <div class="container hero-grid">
         <div class="hero-left reveal">
@@ -79,30 +79,69 @@
     </header>
 
     <main>
+      <!-- Featured project -->
       <section class="section reveal">
         <div class="container">
-          <h2 class="reveal">Currently Building</h2>
+          <h2 class="reveal">Featured Project</h2>
 
           <p class="muted reveal" style="margin-top:-6px; margin-bottom:18px;">
-            <strong>Status:</strong>
-            New apps and case studies are in progress. Each finished project will include a live demo,
-            tech stack, and a clear breakdown of what I built.
+            A polished, mobile-friendly real estate demo site with interactive tools and a luxury UI.
           </p>
 
           <div class="grid">
-            <div class="card reveal">
-              <h3>In Development</h3>
-              <p class="muted">
-                Production-ready applications with real-world problem solving and clean UI.
-              </p>
-              <ul>
-                <li>Modern front-end + back-end structure</li>
-                <li>Performance + responsive design</li>
-                <li>Polished user experience</li>
-              </ul>
-            </div>
+            <!-- Gold Sky Homes -->
+            <article class="card reveal" aria-label="Project: Gold Sky Homes">
+              <div class="badge">Live Demo</div>
 
-            <div class="card reveal">
+<div class="card-image">
+  <img src="assets/images/thumbnailfff.png"
+       alt="Gold Sky Homes real estate website preview">
+</div>
+
+<h3>Gold Sky Homes</h3>
+              <p class="project-meta">
+                <strong>HTML • CSS • JavaScript • Responsive UI</strong>
+              </p>
+
+              <p class="muted" style="margin-top:10px;">
+                Premium mock real estate website featuring advanced UI polish,
+                interactive buyer tools, dynamic listing filters, a testimonials slider,
+                and mobile optimization.
+              </p>
+
+              <ul>
+                <li>Mortgage + closing cost + affordability calculators</li>
+                <li>Listing filters (Type + Status) + “Recently Sold” badge</li>
+                <li>Accessibility polish (skip link + focus styles)</li>
+                <li>Mobile-first responsive layout</li>
+              </ul>
+
+              <div class="project-actions">
+                <a
+                  class="btn"
+                  href="https://redcloudish.github.io/realtor_site/"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Live Demo
+                </a>
+
+                <!-- Optional: add your repo link when ready -->
+                <!--
+                <a
+                  class="btn btn-outline"
+                  href="https://github.com/redcloudish/realtor_site"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  GitHub
+                </a>
+                -->
+              </div>
+            </article>
+
+            <!-- Upcoming Case Study -->
+            <article class="card reveal">
               <h3>Upcoming Case Study</h3>
               <p class="muted">
                 A full walkthrough showing planning, implementation decisions, and deployment.
@@ -112,9 +151,10 @@
                 <li>Development workflow</li>
                 <li>Optimization + launch</li>
               </ul>
-            </div>
+            </article>
 
-            <div class="card reveal">
+            <!-- More Projects -->
+            <article class="card reveal">
               <h3>More Projects Soon</h3>
               <p class="muted">
                 Additional builds are being prepared and will be published once complete.
@@ -124,11 +164,12 @@
                 <li>Technical summaries</li>
                 <li>Source code links</li>
               </ul>
-            </div>
+            </article>
           </div>
         </div>
       </section>
 
+      <!-- CTA -->
       <section class="section reveal">
         <div class="container contact-cta">
           <div class="reveal">
@@ -148,19 +189,23 @@
 
         <div class="footer-social">
           <!-- EMAIL -->
-          <a class="social-btn small email-icon"
-             href="mailto:Mikeebrownn@hotmail.com"
-             aria-label="Email Mike Brown">
-            <img src="assets/icons/envelope-thin-svgrepo-com.svg" alt="">
+          <a
+            class="social-btn small email-icon"
+            href="mailto:Mikeebrownn@hotmail.com"
+            aria-label="Email Mike Brown"
+          >
+            <img src="assets/icons/envelope-thin-svgrepo-com.svg" alt="" />
           </a>
 
           <!-- LINKEDIN -->
-          <a class="social-btn small"
-             href="https://www.linkedin.com/in/michael-brown-aba50b35b"
-             target="_blank"
-             rel="noopener"
-             aria-label="Mike Brown LinkedIn">
-            <img src="assets/icons/link png.jpg" alt="">
+          <a
+            class="social-btn small"
+            href="https://www.linkedin.com/in/michael-brown-aba50b35b"
+            target="_blank"
+            rel="noopener"
+            aria-label="Mike Brown LinkedIn"
+          >
+            <img src="assets/icons/link png.jpg" alt="" />
           </a>
         </div>
       </div>
