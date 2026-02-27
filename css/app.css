@@ -5,10 +5,6 @@
    - Better tap targets + safer wrapping
    - Matrix hero support + reveal animations
    ========================================================= */
-/* ===========================
-   Mike Brown Portfolio - app.css
-   Clean, merged, mobile-polished (NO duplicates)
-   =========================== */
 
 *{ box-sizing: border-box; }
 
@@ -342,6 +338,7 @@ h1, h2, h3, p{
   font-weight: 700;
   color: rgba(255,255,255,0.86);
 }
+
 .project-meta strong{ font-weight: 800; }
 
 .project-actions{
@@ -505,19 +502,20 @@ h1, h2, h3, p{
 }
 
 /* =========================================================
-   MOBILE / RESPONSIVE (single clean set)
+   MOBILE / RESPONSIVE
    ========================================================= */
 
 /* Tablet + down */
 @media (max-width: 950px){
   body{ background-attachment: scroll; }
 
-  /* Hero less chunky + aligned */
-  .hero{ padding: 22px 0 14px; }
+  .hero{
+    padding: 28px 0 18px;        /* less chunky */
+  }
 
   .hero-grid{
     grid-template-columns: 1fr;
-    gap: 14px;
+    gap: 16px;
     align-items: start;
   }
 
@@ -531,7 +529,107 @@ h1, h2, h3, p{
     align-self: start;
   }
 
-  .eyebrow{ margin-bottom: 8px; }
+  .hero-title{
+    font-size: 2rem;
+    line-height: 1.05;
+    margin-bottom: 8px;
+  }
+
+  .hero-subtitle{
+    margin-bottom: 14px;
+  }
+
+  .cta-row{
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .photo-card{
+    margin: 0 auto;
+    max-width: 220px;
+  }
+
+  .hero-right{
+    margin-top: 10px;
+  }
+}
+
+/* Phone */
+@media (max-width: 650px){
+  .container{ padding: 18px; }
+
+  /* Keep hero compact on Android */
+  .hero{ padding: 24px 0 14px; }
+
+  /* Better tap targets */
+  .nav-links a,
+  .btn{
+    min-height: 44px;
+  }
+
+  /* Nav spacing when wrapping */
+  .nav-links{ gap: 10px; }
+
+  /* Optional nicer touch targets in nav */
+  .nav-links a{
+    padding: 10px 10px;
+    border-radius: 999px;
+  }
+
+  input, select, textarea{
+    font-size: 16px; /* prevents zoom / improves usability */
+  }
+}
+
+/* Tiny phones */
+@media (max-width: 520px){
+  .hero{ padding: 22px 0 14px; }
+
+  .hero-title{ font-size: 1.75rem; }
+
+  .cta-row .btn{
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Optional: hide “Back” button on tiny screens */
+  .hero-right{ display:none; }
+}
+/* =========================================================
+   HERO + NAV MOBILE POLISH (paste at VERY bottom)
+   Targets your exact HTML structure:
+   .nav .brand .nav-links
+   header.hero.hero-matrix #home
+   .hero-grid .hero-left .hero-right .photo-card
+   ========================================================= */
+
+/* Slightly smaller container padding on phones */
+@media (max-width: 650px){
+  .container{ padding: 16px; }
+}
+
+/* HERO: less tall, better alignment */
+@media (max-width: 950px){
+  .hero{
+    padding: 22px 0 14px; /* was 48/36, this removes “chunky” */
+  }
+
+  .hero-grid{
+    grid-template-columns: 1fr;
+    gap: 14px;
+    align-items: start;
+  }
+
+  .hero-left,
+  .hero-right{
+    text-align: left !important;
+    justify-self: start;
+    align-self: start;
+  }
+
+  .eyebrow{
+    margin-bottom: 8px;
+  }
 
   .hero-title{
     font-size: 2rem;
@@ -544,31 +642,55 @@ h1, h2, h3, p{
     max-width: 60ch;
   }
 
+  /* Buttons feel cleaner stacked */
   .cta-row{
     gap: 10px;
     margin-bottom: 10px;
   }
-
-  .photo-card{
-    margin: 6px auto 0;
-    max-width: 220px;
-  }
-
-  .hero-right{ margin-top: 10px; }
 }
 
-/* Phones */
-@media (max-width: 650px){
-  .container{ padding: 16px; }
+/* Phones: stack buttons + reduce photo size so hero isn’t huge */
+@media (max-width: 520px){
+  .hero-title{ font-size: 1.75rem; }
 
-  /* Make nav behave nicely when wrapping */
+  .cta-row .btn{
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Make the photo smaller on small screens */
+  .photo-card{
+    max-width: 190px;
+    margin: 6px auto 0;
+  }
+
+  /* Tone down photo matrix overlay a bit so it doesn’t feel “busy” */
+  .matrix-canvas--photo{
+    opacity: 0.22;
+  }
+
+  /* Skills: keep it from becoming a giant block */
+  .skills-row{
+    gap: 8px;
+    margin-top: 10px;
+  }
+  .pill{
+    font-size: .9rem;
+    padding: 7px 10px;
+  }
+}
+
+/* NAV: better on mobile when links wrap */
+@media (max-width: 650px){
   .nav-inner{
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
   }
 
-  .nav-links{ gap: 10px; }
+  .nav-links{
+    gap: 10px;
+  }
 
   .nav-links a{
     padding: 10px 10px;
@@ -580,42 +702,5 @@ h1, h2, h3, p{
   .nav-links a:hover{
     border-bottom-color: transparent;
     border-color: rgba(255,255,255,0.22);
-  }
-
-  /* Better tap targets */
-  .nav-links a,
-  .btn{
-    min-height: 44px;
-  }
-
-  input, select, textarea{
-    font-size: 16px; /* prevents zoom / improves usability */
-  }
-}
-
-/* Tiny phones */
-@media (max-width: 520px){
-  .hero-title{ font-size: 1.75rem; }
-
-  .cta-row .btn{
-    width: 100%;
-    text-align: center;
-  }
-
-  /* Smaller photo so hero isn't huge */
-  .photo-card{ max-width: 190px; }
-
-  /* Tone down matrix overlay on photo */
-  .matrix-canvas--photo{ opacity: 0.22; }
-
-  /* Skills row: smaller + less chunky */
-  .skills-row{
-    gap: 8px;
-    margin-top: 10px;
-  }
-
-  .pill{
-    font-size: .9rem;
-    padding: 7px 10px;
   }
 }
