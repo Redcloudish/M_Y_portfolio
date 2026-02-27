@@ -493,6 +493,60 @@ h1, h2, h3, p{
   }
 }
 
+/* =========================
+   HERO MOBILE POLISH
+   (put near bottom of app.css)
+========================= */
+
+@media (max-width: 950px){
+  .hero{
+    padding: 28px 0 18px;              /* less chunky */
+  }
+
+  .hero-grid{
+    gap: 16px;                         /* tighter spacing */
+    align-items: start;
+  }
+
+  .hero-left,
+  .hero-right{
+    text-align: left !important;       /* fixes the “not lined up” feel */
+    justify-self: start;
+    align-self: start;
+  }
+
+  .hero-title{
+    font-size: 2rem;
+    line-height: 1.05;
+    margin-bottom: 8px;
+  }
+
+  .hero-subtitle{
+    margin-bottom: 14px;
+  }
+
+  .cta-row{
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+/* Even smaller phones */
+@media (max-width: 520px){
+  .hero{ padding: 22px 0 14px; }
+
+  .hero-title{ font-size: 1.75rem; }
+
+  .cta-row .btn{
+    width: 100%;                       /* stacked buttons looks cleaner */
+    text-align: center;
+  }
+
+  /* Optional: hide the “Back” button in hero-right on tiny screens */
+  .hero-right{ display:none; }
+}
+
+
 /* Extra mobile comfort (Android/iOS) */
 @media (max-width: 650px){
   .hero{ padding: 36px 0 22px; }
