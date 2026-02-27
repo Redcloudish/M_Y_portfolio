@@ -1,9 +1,8 @@
 /* =========================================================
-   app.css (FULL) — Portfolio / Projects site
-   - Mobile hero polish (no conflicting paddings)
-   - “Red” branding accent for RedSky Marketing
-   - Better tap targets + safer wrapping
-   - Matrix hero support + reveal animations
+   Mike Brown Portfolio — app.css (FULL, FIXED)
+   - Keeps DARK theme on mobile (no light grey)
+   - Mobile hero less “chunky” + aligned
+   - Brand “RedSky Marketing” in accent red
    ========================================================= */
 
 *{ box-sizing: border-box; }
@@ -18,15 +17,16 @@
 }
 
 /* ===== Base ===== */
-html, body { height: 100%; }
+html, body{ height: 100%; }
 
 body{
-  margin:0;
+  margin: 0;
   color: var(--text);
-  line-height:1.6;
+  line-height: 1.6;
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, Helvetica, sans-serif;
   letter-spacing: 0.1px;
 
+  /* DARK theme base + image */
   background:
     linear-gradient(rgba(11,15,22,0.92), rgba(11,15,22,0.92)),
     url("../assets/images/Late-night\\ coding\\ session\\ in\\ focus\\ copy.png");
@@ -59,11 +59,11 @@ h2{
 }
 
 /* Safer wrapping on small screens */
-h1, h2, h3, p{
-  overflow-wrap: anywhere;
-}
+h1, h2, h3, p{ overflow-wrap: anywhere; }
 
-/* ===== NAV ===== */
+/* =========================================================
+   NAV
+   ========================================================= */
 .nav{
   position: sticky;
   top: 0;
@@ -74,32 +74,27 @@ h1, h2, h3, p{
 }
 
 .nav-inner{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   gap: 16px;
 }
 
 /* Brand (make it RED) */
 .brand{
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: .02em;
   color: var(--accent);
 }
 
-/* If you decide to only make "Red" red later, use:
-   .brand{ color: var(--text); }
-   .brand-red{ color: var(--accent); }
-*/
-
 .nav-links{
-  display:flex;
+  display: flex;
   gap: 16px;
   flex-wrap: wrap;
 }
 
 .nav-links a{
-  text-decoration:none;
+  text-decoration: none;
   color: var(--muted);
   padding: 10px 6px;
   border-bottom: 1px solid transparent;
@@ -110,10 +105,14 @@ h1, h2, h3, p{
   border-bottom-color: rgba(255,255,255,0.25);
 }
 
-/* ===== HERO ===== */
+/* =========================================================
+   HERO
+   ========================================================= */
 .hero{
   padding: 48px 0 36px;
   border-bottom: 1px solid rgba(255,255,255,0.08);
+
+  /* Keep this DARK on all screens */
   background:
     radial-gradient(900px 400px at 25% 20%, rgba(255,91,74,0.18), transparent 60%),
     radial-gradient(900px 500px at 90% 10%, rgba(255,255,255,0.06), transparent 55%),
@@ -121,10 +120,10 @@ h1, h2, h3, p{
 }
 
 .hero-grid{
-  display:grid;
+  display: grid;
   grid-template-columns: 1.2fr 0.8fr;
   gap: 28px;
-  align-items:center;
+  align-items: center;
   position: relative;
   z-index: 2; /* content above matrix */
 }
@@ -143,9 +142,9 @@ h1, h2, h3, p{
 
 .hero-title::before{
   content:"";
-  position:absolute;
-  left:0;
-  top:0.45em;
+  position: absolute;
+  left: 0;
+  top: 0.45em;
   width: 8px;
   height: 8px;
   border-radius: 999px;
@@ -160,25 +159,26 @@ h1, h2, h3, p{
 }
 
 .hero-right{ text-align: right; }
-.hero-right .btn-outline{ padding: 8px 12px; line-height: 1.1; }
 
-/* ===== BUTTONS ===== */
+/* =========================================================
+   BUTTONS
+   ========================================================= */
 .cta-row{
-  display:flex;
+  display: flex;
   gap: 12px;
   flex-wrap: wrap;
   margin-bottom: 16px;
 }
 
 .btn{
-  display:inline-block;
+  display: inline-block;
   padding: 10px 14px;
   border-radius: 10px;
-  text-decoration:none;
+  text-decoration: none;
   background: var(--accent);
   color: #0b0f16;
   border: 1px solid var(--accent);
-  font-weight: 700;
+  font-weight: 800;
   box-shadow: 0 10px 30px rgba(255,91,74,0.18);
   transition: transform .12s ease, box-shadow .12s ease, filter .12s ease;
 }
@@ -195,7 +195,7 @@ h1, h2, h3, p{
   background: transparent;
   color: var(--text);
   border: 1px solid var(--border);
-  font-weight: 600;
+  font-weight: 700;
   transition: transform .12s ease, border-color .12s ease, background .12s ease;
 }
 
@@ -205,9 +205,11 @@ h1, h2, h3, p{
   border-color: rgba(255,255,255,0.28);
 }
 
-/* ===== SKILL PILLS ===== */
+/* =========================================================
+   SKILL PILLS
+   ========================================================= */
 .skills-row{
-  display:flex;
+  display: flex;
   flex-wrap: wrap;
   gap: 10px;
 }
@@ -221,7 +223,9 @@ h1, h2, h3, p{
   font-size: .95rem;
 }
 
-/* ===== ROUND HERO PHOTO + MATRIX INTEGRATION ===== */
+/* =========================================================
+   ROUND HERO PHOTO + MATRIX INTEGRATION
+   ========================================================= */
 .photo-card{
   border-radius: 50%;
   overflow: hidden;
@@ -271,21 +275,29 @@ h1, h2, h3, p{
 
 .photo-matrix img{ position: relative; z-index: 1; }
 
-/* ===== SECTIONS ===== */
+/* =========================================================
+   SECTIONS
+   ========================================================= */
 .section{
   padding: 34px 0;
   border-bottom: 1px solid rgba(255,255,255,0.08);
+
+  /* IMPORTANT: stays DARK (prevents “light grey” on mobile) */
   background: rgba(11,15,22,0.25);
 }
 
-/* ===== GRIDS ===== */
+/* =========================================================
+   GRIDS
+   ========================================================= */
 .grid{
-  display:grid;
+  display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
 }
 
-/* ===== CARDS ===== */
+/* =========================================================
+   CARDS
+   ========================================================= */
 .card{
   border: 1px solid rgba(255,255,255,0.11);
   background: rgba(255,255,255,0.06);
@@ -327,12 +339,14 @@ h1, h2, h3, p{
 .card li{ margin-bottom: 6px; }
 
 .card-actions{
-  display:flex;
+  display: flex;
   gap: 14px;
   margin-top: 12px;
 }
 
-/* ===== “Professional project card” helpers ===== */
+/* =========================================================
+   “Professional project card” helpers
+   ========================================================= */
 .project-meta{
   margin-top: -6px;
   font-weight: 700;
@@ -349,8 +363,8 @@ h1, h2, h3, p{
 }
 
 .badge{
-  display:inline-flex;
-  align-items:center;
+  display: inline-flex;
+  align-items: center;
   gap: 8px;
   padding: 6px 10px;
   border-radius: 999px;
@@ -370,7 +384,7 @@ h1, h2, h3, p{
   box-shadow: 0 0 14px rgba(255,91,74,0.45);
 }
 
-/* ===== Image inside a Card ===== */
+/* Image inside a card */
 .card-image{
   margin: 10px 0;
   border-radius: 12px;
@@ -387,12 +401,15 @@ h1, h2, h3, p{
   max-height: 220px;
 }
 
-/* ===== CONTACT CTA ===== */
+/* =========================================================
+   CONTACT CTA
+   ========================================================= */
 .contact-cta{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   gap: 16px;
+
   border: 1px solid rgba(255,255,255,0.12);
   background:
     radial-gradient(700px 300px at 15% 30%, rgba(255,91,74,0.12), transparent 60%),
@@ -401,36 +418,41 @@ h1, h2, h3, p{
   padding: 18px;
 }
 
-/* ===== FOOTER ===== */
-.footer{ padding: 18px 0; }
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.footer{
+  padding: 18px 0;
+  background: transparent; /* keep dark */
+}
 
 .footer-inner{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   gap: 16px;
 }
 
 .footer-social{
-  display:flex;
-  gap:10px;
+  display: flex;
+  gap: 10px;
 }
 
 .social-btn.small{
-  padding:8px;
-  border-radius:10px;
+  padding: 8px;
+  border-radius: 10px;
   background: rgba(255,255,255,0.05);
-  border:1px solid rgba(255,255,255,0.12);
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  border: 1px solid rgba(255,255,255,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: all .18s ease;
 }
 
 .social-btn.small img{
-  width:18px;
-  height:18px;
-  display:block;
+  width: 18px;
+  height: 18px;
+  display: block;
 }
 
 .social-btn.small:hover{
@@ -464,7 +486,9 @@ h1, h2, h3, p{
   box-shadow: 0 0 18px rgba(255,91,74,0.45);
 }
 
-/* ===== Matrix in Hero ===== */
+/* =========================================================
+   MATRIX CANVAS
+   ========================================================= */
 .hero-matrix{
   position: relative;
   overflow: hidden;
@@ -480,7 +504,9 @@ h1, h2, h3, p{
   opacity: 0.28;
 }
 
-/* ===== Scroll reveal ===== */
+/* =========================================================
+   SCROLL REVEAL
+   ========================================================= */
 .reveal{
   opacity: 0;
   transform: translateY(16px);
@@ -492,7 +518,9 @@ h1, h2, h3, p{
   transform: translateY(0);
 }
 
-/* ===== Reduce motion ===== */
+/* =========================================================
+   REDUCE MOTION
+   ========================================================= */
 @media (prefers-reduced-motion: reduce){
   *{
     animation: none !important;
@@ -502,7 +530,10 @@ h1, h2, h3, p{
 }
 
 /* =========================================================
-   MOBILE / RESPONSIVE
+   RESPONSIVE
+   - less chunky hero
+   - better alignment
+   - better nav wrap on phones
    ========================================================= */
 
 /* Tablet + down */
@@ -510,108 +541,7 @@ h1, h2, h3, p{
   body{ background-attachment: scroll; }
 
   .hero{
-    padding: 28px 0 18px;        /* less chunky */
-  }
-
-  .hero-grid{
-    grid-template-columns: 1fr;
-    gap: 16px;
-    align-items: start;
-  }
-
-  .grid{ grid-template-columns: 1fr; }
-
-  /* Fix “not lined up” feel */
-  .hero-left,
-  .hero-right{
-    text-align: left !important;
-    justify-self: start;
-    align-self: start;
-  }
-
-  .hero-title{
-    font-size: 2rem;
-    line-height: 1.05;
-    margin-bottom: 8px;
-  }
-
-  .hero-subtitle{
-    margin-bottom: 14px;
-  }
-
-  .cta-row{
-    gap: 10px;
-    margin-bottom: 10px;
-  }
-
-  .photo-card{
-    margin: 0 auto;
-    max-width: 220px;
-  }
-
-  .hero-right{
-    margin-top: 10px;
-  }
-}
-
-/* Phone */
-@media (max-width: 650px){
-  .container{ padding: 18px; }
-
-  /* Keep hero compact on Android */
-  .hero{ padding: 24px 0 14px; }
-
-  /* Better tap targets */
-  .nav-links a,
-  .btn{
-    min-height: 44px;
-  }
-
-  /* Nav spacing when wrapping */
-  .nav-links{ gap: 10px; }
-
-  /* Optional nicer touch targets in nav */
-  .nav-links a{
-    padding: 10px 10px;
-    border-radius: 999px;
-  }
-
-  input, select, textarea{
-    font-size: 16px; /* prevents zoom / improves usability */
-  }
-}
-
-/* Tiny phones */
-@media (max-width: 520px){
-  .hero{ padding: 22px 0 14px; }
-
-  .hero-title{ font-size: 1.75rem; }
-
-  .cta-row .btn{
-    width: 100%;
-    text-align: center;
-  }
-
-  /* Optional: hide “Back” button on tiny screens */
-  .hero-right{ display:none; }
-}
-/* =========================================================
-   HERO + NAV MOBILE POLISH (paste at VERY bottom)
-   Targets your exact HTML structure:
-   .nav .brand .nav-links
-   header.hero.hero-matrix #home
-   .hero-grid .hero-left .hero-right .photo-card
-   ========================================================= */
-
-/* Slightly smaller container padding on phones */
-@media (max-width: 650px){
-  .container{ padding: 16px; }
-}
-
-/* HERO: less tall, better alignment */
-@media (max-width: 950px){
-  .hero{
-    padding: 22px 0 14px; /* was 48/36, this removes “chunky” */
+    padding: 22px 0 14px; /* less chunky */
   }
 
   .hero-grid{
@@ -620,15 +550,13 @@ h1, h2, h3, p{
     align-items: start;
   }
 
+  .grid{ grid-template-columns: 1fr; }
+
   .hero-left,
   .hero-right{
-    text-align: left !important;
+    text-align: left !important; /* fixes “not lined up” */
     justify-self: start;
     align-self: start;
-  }
-
-  .eyebrow{
-    margin-bottom: 8px;
   }
 
   .hero-title{
@@ -642,46 +570,28 @@ h1, h2, h3, p{
     max-width: 60ch;
   }
 
-  /* Buttons feel cleaner stacked */
   .cta-row{
     gap: 10px;
     margin-bottom: 10px;
   }
-}
 
-/* Phones: stack buttons + reduce photo size so hero isn’t huge */
-@media (max-width: 520px){
-  .hero-title{ font-size: 1.75rem; }
-
-  .cta-row .btn{
-    width: 100%;
-    text-align: center;
-  }
-
-  /* Make the photo smaller on small screens */
   .photo-card{
-    max-width: 190px;
     margin: 6px auto 0;
-  }
-
-  /* Tone down photo matrix overlay a bit so it doesn’t feel “busy” */
-  .matrix-canvas--photo{
-    opacity: 0.22;
-  }
-
-  /* Skills: keep it from becoming a giant block */
-  .skills-row{
-    gap: 8px;
-    margin-top: 10px;
-  }
-  .pill{
-    font-size: .9rem;
-    padding: 7px 10px;
+    max-width: 220px;
   }
 }
 
-/* NAV: better on mobile when links wrap */
+/* Phone */
 @media (max-width: 650px){
+  .container{ padding: 16px; }
+
+  /* Better tap targets */
+  .nav-links a,
+  .btn{
+    min-height: 44px;
+  }
+
+  /* Nav wrap polish */
   .nav-inner{
     flex-direction: column;
     align-items: flex-start;
@@ -703,4 +613,48 @@ h1, h2, h3, p{
     border-bottom-color: transparent;
     border-color: rgba(255,255,255,0.22);
   }
+
+  /* Prevent mobile zoom on inputs (on other pages too) */
+  input, select, textarea{ font-size: 16px; }
+}
+
+/* Tiny phones */
+@media (max-width: 520px){
+  .hero-title{ font-size: 1.75rem; }
+
+  .cta-row .btn{
+    width: 100%;
+    text-align: center;
+  }
+
+  .photo-card{
+    max-width: 190px;
+  }
+
+  .matrix-canvas--photo{
+    opacity: 0.22; /* less busy */
+  }
+
+  .skills-row{
+    gap: 8px;
+    margin-top: 10px;
+  }
+
+  .pill{
+    font-size: .9rem;
+    padding: 7px 10px;
+  }
+}
+
+/* =========================================================
+   THEME LOCK (final safety)
+   If anything ever tries to “go grey”, this holds the dark theme.
+   ========================================================= */
+html, body{
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+.section, .nav, .hero, .card, .contact-cta, .footer{
+  color: var(--text);
 }
